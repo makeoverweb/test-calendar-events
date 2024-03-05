@@ -34,7 +34,7 @@ function App() {
           });
         }
       });
-    }, 30000); // Проверка каждые 30 секунд
+    }, 10000); // Проверка каждые 10 секунд
 
     return () => clearInterval(interval);
   }, [eventsData]);

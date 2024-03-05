@@ -81,6 +81,7 @@ function CustomModal({ isOpen, onClose, eventId, event, ...rest }: Props) {
         setTitle(event.name);
         event.start && setStartTime(transformTimeToDate(event.start) || null);
         event.end && setEndTime(transformTimeToDate(event.end) || null);
+        setNotificationTimeInMinutes(event.notificationTime || 0);
       }
     }
   };
@@ -108,7 +109,7 @@ function CustomModal({ isOpen, onClose, eventId, event, ...rest }: Props) {
             value={startTime}
             className={s.timePicker}
             onChange={(time) => setStartTime(time)}
-            format="h:mm"
+            format="HH:mm"
           />
           <TimePicker
             suffixIcon={<ClockCircleOutlined />}
@@ -116,7 +117,7 @@ function CustomModal({ isOpen, onClose, eventId, event, ...rest }: Props) {
             value={endTime}
             className={s.timePicker}
             onChange={(time) => setEndTime(time)}
-            format="h:mm"
+            format="HH:mm"
             disabled={!startTime}
           />
           <div className={s.notificationTime}>
