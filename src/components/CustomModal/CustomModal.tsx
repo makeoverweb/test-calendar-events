@@ -53,6 +53,7 @@ function CustomModal({ isOpen, onClose, eventId, event, ...rest }: Props) {
           start: (startTime && startTime.format("HH:mm")) || null,
           end: (endTime && endTime.format("HH:mm")) || null,
           notificationTime: notificationTimeInMinutes || 0,
+          isShowed: event.isShowed,
         })
       );
     } else {
@@ -64,6 +65,7 @@ function CustomModal({ isOpen, onClose, eventId, event, ...rest }: Props) {
           start: (startTime && startTime.format("HH:mm")) || null,
           end: (endTime && endTime.format("HH:mm")) || null,
           notificationTime: notificationTimeInMinutes || 0,
+          isShowed: false,
         })
       );
     }

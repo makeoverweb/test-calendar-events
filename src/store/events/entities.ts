@@ -8,4 +8,5 @@ export interface TEvent {
   start: string | null;
   end: string | null;
   notificationTime: number;
+  isShowed: boolean;
 }

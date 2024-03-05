@@ -7,10 +7,13 @@ import { useEffect } from "react";
 import dayjs from "dayjs";
 import { notification } from "antd";
 import { getEventsData } from "./store/events/selectors";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { updateEventAction } from "./store/events/actions";
 
 function App() {
   const eventsData = useSelector(getEventsData);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,7 +26,10 @@ function App() {
           "minute"
         );
         // если currentDateTime находится в промежутке между notificationDateTime и eventDateTime
-        if (currentDateTime.isBetween(notificationDateTime, eventDateTime)) {
+        if (
+          currentDateTime.isBetween(notificationDateTime, eventDateTime) &&
+          !event.isShowed
+        ) {
           const notificationKey = `event-notification-${id}`;
           const message = `Событие "${name}" начнется через ${notificationTime} минут`;
           notification.open({
@@ -32,12 +38,18 @@ function App() {
             key: notificationKey,
             duration: null, // Уведомление не будет автоматически закрыто
           });
+          dispatch(
+            updateEventAction({
+              ...event,
+              isShowed: true,
+            })
+          );
         }
       });
     }, 10000); // Проверка каждые 10 секунд
 
     return () => clearInterval(interval);
-  }, [eventsData]);
+  }, [dispatch, eventsData]);
 
   return (
     <div className={s.root}>
