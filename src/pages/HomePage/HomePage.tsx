@@ -42,7 +42,10 @@ const HomePage = () => {
       <ul className={s.events}>
         {listData.map((item) => (
           <li key={item.id}>
-            <Badge status={"success"} text={<Text>{item.name}</Text>} />
+            <Badge
+              status={item.isShowed ? "processing" : "success"}
+              text={<Text>{item.name}</Text>}
+            />
           </li>
         ))}
       </ul>
