@@ -1,0 +1,15 @@
+.events {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+:global(.ant-badge-status) {
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.month {
+  font-size: 1.5rem;
+}

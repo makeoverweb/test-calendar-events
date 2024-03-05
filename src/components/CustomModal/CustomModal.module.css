@@ -1,0 +1,24 @@
+.content {
+  padding-top: 2rem;
+}
+
+.inputName {
+  margin-bottom: 1rem;
+}
+
+.timeWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.timePicker {
+  width: 10rem;
+}
+
+.timePicker:first-child {
+  margin-bottom: 1rem;
+}
+
+.notificationTime {
+  margin-top: 1rem;
+}
