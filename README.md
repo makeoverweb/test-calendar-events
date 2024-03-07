@@ -12,7 +12,7 @@
 
 - `npm ci` - установка зависимостей.
 - `npm run dev` - локальный запуск.
-- `npm run deploy` - деплой на GitHub Pages: [test-calendar-events](https://github.com/makeoverweb/test-calendar-events)
+- `npm run deploy` - деплой на GitHub Pages: [test-calendar-events](https://makeoverweb.github.io/test-calendar-events/)
 
 ## Используемые технологии
 
